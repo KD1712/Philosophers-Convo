@@ -115,7 +115,12 @@ function App() {
         <Conversation conversation={conversation} />
       </div>
       {error && <div className="error">{error}</div>}
-      {loading && <div className="loading">Loading...</div>}
+      {/* {loading && <div className="loading">Loading...</div>} */}
+      {loading && (
+        <div className="loading">
+          <div className="loading-spinner"></div>
+        </div>
+      )}
       <div className="philosopher-buttons">
         {philosophers.map((philosopher) => (
           <PhilosopherButton

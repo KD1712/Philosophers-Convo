@@ -5,6 +5,8 @@
   --text-dark: #ffffff;
   --border-light: #ccc;
   --border-dark: #444;
+  --spinner-light: rgba(0, 0, 0, 0.1);
+  --spinner-dark: rgba(255, 255, 255, 0.1);
 }
 
 body.light-mode {
@@ -142,6 +144,32 @@ body.dark-mode .initial-prompt-input {
 }
 
 .loading {
-  color: blue;
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.loading-spinner {
+  border: 4px solid var(--spinner-light);
+  border-left-color: var(--text-light);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+}
+
+body.dark-mode .loading-spinner {
+  border-color: var(--spinner-dark);
+  border-left-color: var(--text-dark);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
