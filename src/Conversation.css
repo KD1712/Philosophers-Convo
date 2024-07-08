@@ -1,0 +1,85 @@
+/* 
+   .conversation {
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid var(--border-light);
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+  }
+  
+  body.dark-mode .conversation {
+    border-color: var(--border-dark);
+  }
+  
+  .conversation-entry {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .philosopher-name {
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-end;
+    flex-shrink: 0;
+    width: 5%;
+
+  }
+  
+  .philosopher-response {
+    flex: 1;
+    text-align: left;
+    width: 95%;
+
+  }
+  
+  .philosopher-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .philosopher-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .new-conversation-button,
+  .toggle-mode-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .initial-prompt-input {
+    padding: 10px;
+    border: 1px solid var(--border-light);
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  body.dark-mode .initial-prompt-input {
+    border-color: var(--border-dark);
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+  }
+  
+  .error {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  .loading {
+    color: blue;
+    margin-bottom: 10px;
+  }
+   */
+   

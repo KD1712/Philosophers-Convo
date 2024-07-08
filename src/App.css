@@ -1,0 +1,147 @@
+:root {
+  --background-light: #ffffff;
+  --background-dark: #2c2c2c;
+  --text-light: #000000;
+  --text-dark: #ffffff;
+  --border-light: #ccc;
+  --border-dark: #444;
+}
+
+body.light-mode {
+  background-color: var(--background-light);
+  color: var(--text-light);
+}
+
+body.dark-mode {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.app {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.toggle-mode-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.conversation-container {
+  width: 100%;
+  transition: width 0.3s ease;
+}
+
+.conversation-container.wide {
+  width: 80%;
+}
+
+.conversation {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid var(--border-light);
+  padding: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  /* width: 100%; */
+}
+
+body.dark-mode .conversation {
+  border-color: var(--border-dark);
+}
+
+.conversation-entry {
+  background-color: var(--background-light);
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  /* align-items: baseline; */
+}
+
+body.dark-mode .conversation-entry {
+  background-color: var(--background-dark);
+}
+
+.philosopher-name {
+  display: flex;
+  font-weight: bold;
+  margin-right: 5px;
+  justify-content: flex-end;
+  width: 6%;
+}
+
+.philosopher-response {
+  flex: 1;
+  text-align: left;
+  justify-content: flex-start;
+  width: 94%;
+}
+
+.philosopher-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.philosopher-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.input-container {
+  width: 90%;
+  transition: width 0.3s ease;
+}
+
+.input-container.wide {
+  width: 80%;
+}
+
+.initial-prompt-input {
+  padding: 10px;
+  border: 1px solid var(--border-light);
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+body.dark-mode .initial-prompt-input {
+  border-color: var(--border-dark);
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+.new-conversation-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.loading {
+  color: blue;
+  margin-bottom: 10px;
+}
