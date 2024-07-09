@@ -144,6 +144,10 @@ Your output statement should give ONLY the statement as string and WITHOUT ${phi
         className={`fas fa-${lightMode ? "moon" : "sun"} toggle-mode-icon`}
       ></i>
       <h1>Philosopher Conversation</h1>
+      <p>
+        Enter your conversation topic, and click on a philosopher button to
+        start the conversation.
+      </p>
       <div
         className={`input-container ${conversation.length === 0 ? "wide" : ""}`}
       >
@@ -152,7 +156,7 @@ Your output statement should give ONLY the statement as string and WITHOUT ${phi
           type="text"
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
-          placeholder="Enter initial prompt for the conversation"
+          placeholder="Enter Topic for the conversation"
           className="initial-prompt-input"
         />
       </div>
@@ -161,6 +165,7 @@ Your output statement should give ONLY the statement as string and WITHOUT ${phi
           conversation.length === 0 ? "wide" : ""
         }`}
       >
+        <h3>Conversation:</h3>
         <Conversation conversation={conversation} />
       </div>
       {error && <div className="error">{error}</div>}
@@ -183,7 +188,7 @@ Your output statement should give ONLY the statement as string and WITHOUT ${phi
         onClick={handleNewConversation}
         className="new-conversation-button"
       >
-        Start New Conversation
+        Reset Conversation
       </button>
     </div>
   );
