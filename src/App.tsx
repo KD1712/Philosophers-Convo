@@ -101,7 +101,7 @@ You need to add one more statement to that history of conversation,
 by a particular person who is part of the conversation.  Make it readable for 10th grader.
 People in the conversation:${philosophers}. Conversation will be ${conversation}
 Generate next statement from ${philosopher}.Topic will be ${topic}
-Your output statement should give ONLY the statement as string WITHOUT quotes:
+Your output statement should give ONLY the statement as string and WITHOUT ${philosopher} name and WITHOUT quote marks:
 `;
     // } else {
     //   prompt = `You are ${philosopher}. Continue the following conversation with
