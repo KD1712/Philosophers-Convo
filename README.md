@@ -30,6 +30,15 @@ cd philosopher-lib
 npm install
 ```
 
+#### 4. Environment Variables
+
+The api url is already set in the App.tsx file you just need to add a api_key.
+You may create a '.env' file in root folder and add your gpt api key in it.
+
+```js
+VITE_API_KEY = your_api_key;
+```
+
 ### Running the Development Server
 
 ### 1.Start the development server
