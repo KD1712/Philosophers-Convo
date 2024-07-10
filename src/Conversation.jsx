@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import "./Conversation.css";
+
 
 const Conversation = ({ conversation }) => {
   const messagesEndRef = useRef(null)
@@ -12,8 +12,6 @@ const Conversation = ({ conversation }) => {
     scrollToBottom()
   }, [conversation]);
   return(
-
-  
 
   <div className="conversation">
     {conversation.map((entry, index) => (

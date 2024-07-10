@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import PhilosopherButton from "./PhilosopherButton";
 import "./App.css";
@@ -18,9 +18,7 @@ function App() {
   const [lightMode, setLightMode] = useState(true);
   const [topic, setTopic] = useState("");
 
-  useEffect(() => {
-    // console.log(conversation, "convo");
-  }, [conversation]);
+  useEffect(() => {}, [conversation]);
 
   useEffect(() => {
     document.body.classList.toggle("light-mode", lightMode);
@@ -52,63 +50,18 @@ function App() {
     return data.choices[0].message.content;
   };
 
-  const getBasePrompt = (philosopher: string) => {
-    return topic;
-    // ?
-    //  `You are ${philosopher}.
-    // ${initialPrompt}`
-    // : `I have a conversation history of some philosophers.
-    // You are ${philosopher} and need to add one more statement to that history of conversation,
-    // by a particular person who is part of the conversation.
-    // Make it readable for 10th grader. Engage in a conversation on any topic you choose.
-    // Just give the philosopher's msg dont add the name and no quotes
-    // `;
-  };
-
-  const simulateClaudeResponse = async (
+  const simulateAiResponse = async (
     philosopher: string,
     conversation: ConversationEntry[]
   ) => {
-    let prompt;
-    // if (conversation.length === 0) {
-    // prompt = getBasePrompt(philosopher);
-
-    let participants = "Plato, Aristotle, Descartes";
-    // let conversation = "[BLANK]"
-
-    // if (conversation_history.length >= 1)
-    // conversation = ...
-    // speakerName1: statement1
-    // speakerName2: statement2
-    // speakerName1: statement3
-
-    let speaker = ""; //whos button was pressed
-
-    // let topic = "";
-    // conversation topic in the textbox
-
-    //     prompt = `I have a conversation history of some philosophers.
-    //     You need to add one more statement to that history of conversation,
-    //     by a particular person who is part of the conversation.  Make it readable for 10th grader.
-    // People in the conversation: ${philosophers}
-    // Conversation:${conversation}
-    // Generate next statement from: ${philosopher}
-    // Topic: ${topic}
-    // Your output statement should give ONLY the statement as string WITHOUT quotes:
-    // `;
-    prompt = `I have a conversation history of some philosophers. 
+    let prompt = `I have a conversation history of some philosophers. 
 You need to add one more statement to that history of conversation, 
 by a particular person who is part of the conversation.  Make it readable for 10th grader.
 People in the conversation:${philosophers}. Conversation will be ${conversation}
 Generate next statement from ${philosopher}.Topic will be ${topic}
-Your output statement should give ONLY the statement as string and WITHOUT ${philosopher} name and WITHOUT quote marks:
+Your output statement should give ONLY the statement as string 
+and WITHOUT ${philosopher} name and WITHOUT quote marks:
 `;
-    // } else {
-    //   prompt = `You are ${philosopher}. Continue the following conversation with
-    //   just give the philosopher's msg dont add the name and no quotes: ${conversation
-    //     .map((entry) => `${entry.philosopher}: ${entry.text}`)
-    //     .join("\n")}`;
-    // }
 
     const responseText = await fetchGPTResponse(prompt);
     return { text: responseText };
@@ -118,7 +71,7 @@ Your output statement should give ONLY the statement as string and WITHOUT ${phi
     setLoading(true);
     setError("");
     try {
-      const response = await simulateClaudeResponse(philosopher, conversation);
+      const response = await simulateAiResponse(philosopher, conversation);
       console.log(conversation);
       setConversation([...conversation, { philosopher, text: response.text }]);
     } catch (err) {
