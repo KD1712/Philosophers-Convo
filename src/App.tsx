@@ -4,6 +4,8 @@ import PhilosopherButton from "./PhilosopherButton";
 import "./App.css";
 import Conversation from "./Conversation";
 
+const OPENAI_API_KEY = ""; // set your OpenAI API Key here
+
 interface ConversationEntry {
   philosopher: string;
   text: string;
@@ -28,7 +30,7 @@ function App() {
   const fetchGPTResponse = async (prompt: string) => {
     console.log(prompt);
 
-    const apiKey = import.meta.env.VITE_API_KEY;
+    const apiKey = OPENAI_API_KEY;
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
